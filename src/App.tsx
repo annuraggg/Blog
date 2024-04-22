@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import Post from "./pages/post/Post";
 import Auth from "./pages/auth/Auth";
 import { Toaster } from "sonner";
-import ErrB from "./ErrorBoundary";
 import Home from "./pages/home/Home";
 import fourOFour from "./pages/404";
 import { fb } from "./firebaseConfig";
@@ -12,9 +11,7 @@ import { fb } from "./firebaseConfig";
 const App = () => {
   fb;
   const router = createBrowserRouter([
-    {
-      element: <ErrB />,
-      children: [
+   
         {
           path: "/editor",
           Component: Editor,
@@ -36,8 +33,8 @@ const App = () => {
           Component: Home,
         },
         { path: "*", Component: fourOFour },
-      ],
-    },
+      
+  
   ]);
 
   return (
