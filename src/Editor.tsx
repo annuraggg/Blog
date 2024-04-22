@@ -14,6 +14,8 @@ const Editor = () => {
   const [wordCount, setWordCount] = useState(0);
   const [content, setContent] = useState<Delta>({} as Delta);
 
+  const [isNew, setIsNew] = useState(true);
+
   const auth = getAuth(fb);
   const fs = getFirestore(fb);
 
@@ -47,6 +49,7 @@ const Editor = () => {
 
     const slug = window.location.pathname.split("/").pop();
     if (slug !== "editor" && slug !== undefined) {
+      setIsNew(false);
       const getPost = async () => {
         const docRef = doc(fs, "posts", slug);
         const docSnap = await getDoc(docRef);
@@ -71,7 +74,9 @@ const Editor = () => {
   }, []);
 
   const publish = async () => {
-    const slug = title.toLowerCase().replace(/\s/g, "-");
+    const dashedSlug = title.toLowerCase().replace(/\s/g, "-");
+    const slug = dashedSlug.replace(/[^a-zA-Z0-9-]/g, "");
+
     const estimatedReadingTime = wordCount / 200;
     const plainContent = JSON.stringify(content);
     const date = new Date();
@@ -100,7 +105,9 @@ const Editor = () => {
 
   return (
     <div className="flex flex-col items-center justify-center pt-28 pb-10">
-      <h2 className="text-xl">New Post</h2>
+      <h2 className="text-xl">{isNew ? "New Post" : "Edit Post"}</h2>
+      <p>mewo</p>
+      <b>mewo</b>
       <button
         className="bg-transparent underline text-white rounded-md p-2 mb-5"
         onClick={publish}

@@ -2,25 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Slim font */
 @font-face {
-  font-family: "PolySans Median";
-  src: url("./assets/polysans/cec88e5a4cf367c4620cd23c5a184439.eot");
-  src: url("./assets/polysans/cec88e5a4cf367c4620cd23c5a184439.eot?#iefix")
-      format("embedded-opentype"),
-    url("./assets/polysans/cec88e5a4cf367c4620cd23c5a184439.woff") format("woff"),
-    url("./assets/polysans/cec88e5a4cf367c4620cd23c5a184439.woff2") format("woff2"),
-    url("./assets/polysans/cec88e5a4cf367c4620cd23c5a184439.ttf") format("truetype"),
-    url("./assets/polysans/cec88e5a4cf367c4620cd23c5a184439.svg#PolySans Median") format("svg");
+  font-family: "PolySans";
+  src: url("./assets/polysans/slim.eot");
+  src: url("./assets/polysans/slim.eot?#iefix") format("embedded-opentype"),
+    url("./assets/polysans/slim.woff") format("woff"),
+    url("./assets/polysans/slim.woff2") format("woff2"),
+    url("./assets/polysans/slim.ttf") format("truetype"),
+    url("./assets/polysans/slim.svg#PolySans Slim") format("svg");
+  font-weight: lighter;
+}
+
+/* Neutral font */
+@font-face {
+  font-family: "PolySans";
+  src: url("./assets/polysans/neutral.eot");
+  src: url("./assets/polysans/neutral.eot?#iefix") format("embedded-opentype"),
+    url("./assets/polysans/neutral.woff") format("woff"),
+    url("./assets/polysans/neutral.woff2") format("woff2"),
+    url("./assets/polysans/neutral.ttf") format("truetype"),
+    url("./assets/polysans/neutral.svg#PolySans Neutral") format("svg");
   font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+}
+
+@font-face {
+  font-family: "PolySans";
+  src: url("./assets/polysans/median.eot");
+  src: url("./assets/polysans/median.eot?#iefix") format("embedded-opentype"),
+    url("./assets/polysans/median.woff") format("woff"),
+    url("./assets/polysans/median.woff2") format("woff2"),
+    url("./assets/polysans/median.ttf") format("truetype"),
+    url("./assets/polysans/median.svg#PolySans Median") format("svg");
+
+  font-weight: normal;
 }
 
 body {
   /* dark */
   background-color: #0e1010;
   color: #e3dedb;
-  font-family: "PolySans Median", sans-serif;
+  font-family: "PolySans", sans-serif;
 }
 
 :root {
@@ -55,7 +77,7 @@ body {
   color: var(--fontColor) !important;
 }
 .ql-editor {
-  font-family: "PolySans Median" !important;
+  font-family: "PolySans" !important;
   text-align: start;
 }
 

@@ -175,7 +175,7 @@ const Post = () => {
 
   return (
     <div className="flex flex-col items-center justify-center pt-28 pb-20">
-      <div className="w-[50%] text-center">
+      <div className="px-5 md:w-[50%] md:p-0 text-center">
         <div className="my-20">
           <div className="flex gap-3 items-center justify-center">
             {tags.map((tag: { id: string; text: string }) => (

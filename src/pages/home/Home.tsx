@@ -40,36 +40,38 @@ const Home = () => {
     <div className="pt-28 flex flex-col items-center">
       <h1 className="text-5xl mb-5">Home</h1>
 
-      {posts.map((post) => (
-        <div
-          className="mt-4 border p-5 px-10 rounded-lg w-[50%] border-gray-500 cursor-pointer hover:scale-[1.01] transition-all duration-200"
-          key={post.id}
-          onClick={() => window.location.assign(`/post/${post.slug}`)}
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p>
-                {post.title.length > 50
-                  ? post.title.slice(0, 50) + "..."
-                  : post.title}
-                <span className="text-gray-500"> - Anurag Sawant</span>
-              </p>
-              <div className="flex mt-2 gap-2">
-                {post.tags.map((tag: { id: string; text: string }) => (
-                  <div
-                    className="rounded-full text-xs opacity-50 underline underline-offset-2"
-                    key={tag.id}
-                  >
-                    {tag.text}
-                  </div>
-                ))}
+      <div className="w-full flex flex-col items-center px-5 md:px-0">
+        {posts.map((post) => (
+          <div
+            className="mt-4 border p-5 rounded-lg px-5 w-[100%] md:w-[50%] md:px-10 border-gray-500 cursor-pointer hover:scale-[1.01] transition-all duration-200"
+            key={post.id}
+            onClick={() => window.location.assign(`/post/${post.slug}`)}
+          >
+            <div className="flex flex-col md:flex-row md:items-center justify-between text-xs md:text-sm">
+              <div>
+                <p>
+                  {post.title.length > 50
+                    ? post.title.slice(0, 50) + "..."
+                    : post.title}
+                  <span className="text-gray-500"> - Anurag Sawant</span>
+                </p>
+                <div className="flex mt-2 gap-2">
+                  {post.tags.map((tag: { id: string; text: string }) => (
+                    <div
+                      className="rounded-full text-xs opacity-50 underline underline-offset-2"
+                      key={tag.id}
+                    >
+                      {tag.text}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div>{post.publishDate}</div>
+              <div className="md:mt-0 mt-5">{post.publishDate}</div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
