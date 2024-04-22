@@ -5,13 +5,6 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 
-console.log(import.meta.env.VITE_FB_apiKey);
-console.log(import.meta.env.VITE_FB_authDomain);
-console.log(import.meta.env.VITE_FB_projectId);
-console.log(import.meta.env.VITE_FB_storageBucket);
-console.log(import.meta.env.VITE_FB_messagingSenderId);
-console.log(import.meta.env.VITE_FB_appId);
-
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FB_apiKey,
   authDomain: import.meta.env.VITE_FB_authDomain,
@@ -23,4 +16,3 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const fb = initializeApp(firebaseConfig);
-console.log(fb);
