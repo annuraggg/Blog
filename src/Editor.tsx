@@ -7,6 +7,7 @@ import { getAuth } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import { toast } from "sonner";
 import { fb } from "./firebaseConfig";
+import Loader from "./components/Loader";
 
 const Editor = () => {
   const [title, setTitle] = useState("");
@@ -71,7 +72,7 @@ const Editor = () => {
         toast.error("Failed to fetch post");
       }
     }
-  }, []);
+  }, [fs]);
 
   const publish = async () => {
     const dashedSlug = title.toLowerCase().replace(/\s/g, "-");

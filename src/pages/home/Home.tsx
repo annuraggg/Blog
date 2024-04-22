@@ -1,6 +1,7 @@
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { fb } from "../../firebaseConfig";
 import { useEffect, useState } from "react";
+import Loader from "../../components/Loader";
 
 interface Tag {
   id: string;
@@ -17,6 +18,7 @@ interface Post {
 
 const Home = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -31,10 +33,15 @@ const Home = () => {
       }));
 
       setPosts(postsData);
+      setLoading(false);
     };
 
     getPosts();
   }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="pt-28 flex flex-col items-center">

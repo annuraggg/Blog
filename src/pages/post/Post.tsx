@@ -4,6 +4,7 @@ import Quill, { Delta } from "quill/core";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { fb } from "../../firebaseConfig";
+import Loader from "../../components/Loader";
 
 interface Tag {
   id: string;
@@ -18,6 +19,8 @@ const Post = () => {
   const [content, setContent] = useState<Delta>({} as Delta);
   const [date, setDate] = useState("");
   const [tags, setTags] = useState<Tag[]>([]);
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getPost = async () => {
@@ -40,23 +43,25 @@ const Post = () => {
     };
 
     try {
-      getPost();
+      getPost().then(() => setLoading(false));
     } catch (error) {
       toast.error("Failed to fetch post");
     }
   }, []);
 
   useEffect(() => {
-    const quill = new Quill("#editor", {
-      theme: "snow",
-      readOnly: true,
-      modules: {
-        toolbar: false,
-      },
-    });
+    if (!loading) {
+      const quill = new Quill("#editor", {
+        theme: "snow",
+        readOnly: true,
+        modules: {
+          toolbar: false,
+        },
+      });
 
-    quill.setContents(content);
-  }, [content]);
+      quill.setContents(content);
+    }
+  }, [content, loading]);
 
   const getEstimatedLogic = () => {
     if (estimatedReadingTime < 1) {
@@ -172,6 +177,10 @@ const Post = () => {
 
     return adjectives[Math.floor(Math.random() * adjectives.length)];
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col items-center justify-center pt-28 pb-20">
