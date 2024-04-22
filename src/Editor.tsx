@@ -114,7 +114,7 @@ const Editor = () => {
           tags={tags}
           handleAddition={(tag: string) => setTags([...tags, tag])}
           handleDelete={(i: number) =>
-            setTags(tags.filter((tag, index) => index !== i))
+            setTags(tags.filter((_tag, index) => index !== i))
           }
         />
       </div>
