@@ -7,7 +7,6 @@ import { getAuth } from "firebase/auth";
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import { toast } from "sonner";
 import { fb } from "./firebaseConfig";
-import Loader from "./components/Loader";
 
 const Editor = () => {
   const [title, setTitle] = useState("");
