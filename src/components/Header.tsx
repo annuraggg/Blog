@@ -6,13 +6,13 @@ const Header = () => {
 
   return (
     <div
-      className="flex items-center justify-center bg-transparent fixed m-auto left-10 my-5 cursor-pointer"
+      className="flex items-center w-full justify-center bg-[#0e101071] backdrop-blur-md py-2 z-20 opacity-100 fixed cursor-pointer"
       onClick={() => (window.location.href = "/")}
     >
       <img
         src="../logowhite.png"
         alt="logo"
-        className="h-14 px-5 py-2 rounded-full"
+        className="h-10 md:h-14 px-5 py-2 rounded-full"
       />
 
       {auth.currentUser && (
