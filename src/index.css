@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "PolySans Median";
+  src: url("https://db.onlinewebfonts.com/t/cec88e5a4cf367c4620cd23c5a184439.eot");
+  src: url("https://db.onlinewebfonts.com/t/cec88e5a4cf367c4620cd23c5a184439.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/cec88e5a4cf367c4620cd23c5a184439.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/cec88e5a4cf367c4620cd23c5a184439.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/cec88e5a4cf367c4620cd23c5a184439.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/cec88e5a4cf367c4620cd23c5a184439.svg#PolySans Median")
+      format("svg");
+}
+
+body {
+  /* dark */
+  background-color: #0e1010;
+  color: #e3dedb;
+  font-family: "PolySans Median", sans-serif;
+}
+
+:root {
+  --fontColor: #e3dedb;
+}
+
+.ql-toolbar {
+  border: none !important;
+  color: white !important;
+  text-align: center;
+}
+
+.ql-toolbar .ql-stroke {
+  fill: none;
+  stroke: var(--fontColor) !important;
+  background-color: var(--fontColor) !important;
+}
+
+.ql-placeholder {
+  color: var(--fontColor) !important;
+}
+
+.ql-header > button {
+  fill: none;
+  stroke: var(--fontColor) !important;
+  background-color: var(--fontColor) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.ql-editor.ql-blank::before {
+  color: var(--fontColor) !important;
+}
+.ql-editor {
+  font-family: "PolySans Median" !important;
+  text-align: start;
+}
+
+.ql-toolbar .ql-fill {
+  fill: var(--fontColor) !important;
+  stroke: none;
+  background-color: var(--fontColor) !important;
+}
+
+.ql-container {
+  border: none !important;
+}
+
+.ReactTags__tag {
+  padding: 1px;
+  text-underline-offset: 2px;
+  margin-right: 10px;
+  color: #797776;
+}
+
+.ReactTags__tagInputField {
+  color: var(--fontColor);
+  background-color: transparent;
+  border: 1px solid rgb(61, 61, 61);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
