@@ -66,8 +66,115 @@ const Post = () => {
     }
   };
 
+  const getRandomName = () => {
+    const adjectives = [
+      "Dynamic",
+      "Radiant",
+      "Inspired",
+      "Vibrant",
+      "Curious",
+      "Innovative",
+      "Passionate",
+      "Creative",
+      "Adventurous",
+      "Empowered",
+      "Joyful",
+      "Enthusiastic",
+      "Resilient",
+      "Fearless",
+      "Determined",
+      "Ambitious",
+      "Tenacious",
+      "Optimistic",
+      "Energetic",
+      "Playful",
+      "Confident",
+      "Courageous",
+      "Resourceful",
+      "Spirited",
+      "Expressive",
+      "Imaginative",
+      "Driven",
+      "Focused",
+      "Lively",
+      "Charismatic",
+      "Bold",
+      "Invincible",
+      "Exuberant",
+      "Jubilant",
+      "Limitless",
+      "Unstoppable",
+      "Unbreakable",
+      "Unshakable",
+      "Unyielding",
+      "Unwavering",
+      "Unconquerable",
+      "Unflappable",
+      "Unassailable",
+      "Unbending",
+      "Unfettered",
+      "Unstinting",
+      "Badass",
+      "Wicked",
+      "Radical",
+      "Boss",
+      "Legend",
+      "Maverick",
+      "Savage",
+      "Rockstar",
+      "Ninja",
+      "Chill",
+      "Epic",
+      "Lit",
+      "Awesome",
+      "Dope",
+      "Swag",
+      "Fabulous",
+      "Fierce",
+      "Boss",
+      "Guru",
+      "Genius",
+      "Whiz",
+      "Wizard",
+      "Maestro",
+      "Sultan",
+      "Hotshot",
+      "Prodigy",
+      "Ace",
+      "Mastermind",
+      "Legend",
+      "Superstar",
+      "Champion",
+      "Warrior",
+      "Rocker",
+      "Pioneer",
+      "Trendsetter",
+      "Influencer",
+      "Hipster",
+      "Trailblazer",
+      "Rebel",
+      "Hero",
+      "Daredevil",
+      "Firecracker",
+      "Wunderkind",
+      "Troublemaker",
+      "Trailblazer",
+      "Dynamo",
+      "Phenom",
+      "Enigma",
+      "Game-changer",
+      "Whizkid",
+      "Brainiac",
+      "Prodigy",
+      "Einstein",
+      "Visionary",
+    ];
+
+    return adjectives[Math.floor(Math.random() * adjectives.length)];
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center pt-28">
+    <div className="flex flex-col items-center justify-center pt-28 pb-20">
       <div className="w-[50%] text-center">
         <div className="my-20">
           <div className="flex gap-3 items-center justify-center">
@@ -100,6 +207,11 @@ const Post = () => {
 
         <div className="leading-7 text-lg" id="editor"></div>
       </div>
+
+      <p className="text-xs opacity-50 mt-10">
+        &copy; {new Date().getFullYear()} Made with ❤️ by Anurag "
+        {getRandomName()}" Sawant
+      </p>
     </div>
   );
 };

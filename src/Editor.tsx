@@ -99,7 +99,7 @@ const Editor = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pt-28">
+    <div className="flex flex-col items-center justify-center pt-28 pb-10">
       <h2 className="text-xl">New Post</h2>
       <button
         className="bg-transparent underline text-white rounded-md p-2 mb-5"

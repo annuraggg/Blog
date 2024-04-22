@@ -42,7 +42,7 @@ const Home = () => {
 
       {posts.map((post) => (
         <div
-          className="border p-5 px-10 rounded-lg w-[50%] border-gray-500 cursor-pointer hover:scale-[1.01] transition-all duration-200"
+          className="mt-4 border p-5 px-10 rounded-lg w-[50%] border-gray-500 cursor-pointer hover:scale-[1.01] transition-all duration-200"
           key={post.id}
           onClick={() => window.location.assign(`/post/${post.slug}`)}
         >
