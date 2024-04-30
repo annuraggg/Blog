@@ -19,7 +19,6 @@
     "@types/react-mailchimp-subscribe": "^2.1.4",
     "@types/react-tag-input": "^6.6.6",
     "firebase": "^10.11.0",
-    "mailchimp": "^1.2.1",
     "quill": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
