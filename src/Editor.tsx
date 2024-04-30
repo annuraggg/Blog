@@ -106,8 +106,6 @@ const Editor = () => {
   return (
     <div className="flex flex-col items-center justify-center pt-28 pb-10">
       <h2 className="text-xl">{isNew ? "New Post" : "Edit Post"}</h2>
-      <p>mewo</p>
-      <b>mewo</b>
       <button
         className="bg-transparent underline text-white rounded-md p-2 mb-5"
         onClick={publish}

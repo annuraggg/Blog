@@ -14,6 +14,8 @@ const Auth = () => {
       toast.success("Signed in successfully");
       window.location.href = "/";
     } catch (error) {
+      console.log("ERR" )
+      console.log(error)
       toast.error("Invalid Credentials");
     }
   };

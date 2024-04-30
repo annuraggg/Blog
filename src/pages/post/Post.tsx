@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { fb } from "../../firebaseConfig";
 import Loader from "../../components/Loader";
+import Footer from "../../components/Footer";
 
 interface Tag {
   id: string;
@@ -183,45 +184,49 @@ const Post = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center pt-28 pb-20">
-      <div className="px-5 md:w-[50%] md:p-0 text-center">
-        <div className="my-20">
-          <div className="flex gap-3 items-center justify-center">
-            {tags.map((tag: { id: string; text: string }) => (
-              <div
-                key={tag.id}
-                className="rounded-full p-1 opacity-50 underline underline-offset-2"
+    <>
+      <div className="flex flex-col items-center justify-center pt-28 pb-20">
+        <div className="px-5 md:w-[50%] md:p-0 text-center">
+          <div className="my-20">
+            <div className="flex gap-3 items-center justify-center">
+              {tags.map((tag: { id: string; text: string }) => (
+                <div
+                  key={tag.id}
+                  className="rounded-full p-1 opacity-50 underline underline-offset-2"
+                >
+                  {tag.text}
+                </div>
+              ))}
+            </div>
+            <h1 className=" text-6xl">{title}</h1>
+
+            <div className="flex gap-3 justify-center items-center mt-3">
+              <p className="text-xs opacity-70">{date}</p>
+              <div className="rounded-full opacity-70 bg-[#e3dedb] w-1 h-1"></div>
+              <p className="text-xs opacity-70">{getEstimatedLogic()}</p>
+            </div>
+
+            {auth.currentUser && (
+              <a
+                href={`/editor/${window.location.pathname.split("/").pop()!}`}
+                className="text-xs underline"
               >
-                {tag.text}
-              </div>
-            ))}
-          </div>
-          <h1 className=" text-6xl">{title}</h1>
-
-          <div className="flex gap-3 justify-center items-center mt-3">
-            <p className="text-xs opacity-70">{date}</p>
-            <div className="rounded-full opacity-70 bg-[#e3dedb] w-1 h-1"></div>
-            <p className="text-xs opacity-70">{getEstimatedLogic()}</p>
+                Edit This
+              </a>
+            )}
           </div>
 
-          {auth.currentUser && (
-            <a
-              href={`/editor/${window.location.pathname.split("/").pop()!}`}
-              className="text-xs underline"
-            >
-              Edit This
-            </a>
-          )}
+          <div className="leading-7 text-lg" id="editor"></div>
         </div>
 
-        <div className="leading-7 text-lg" id="editor"></div>
+        <p className="text-xs opacity-50 mt-10">
+          &copy; {new Date().getFullYear()} Made with ❤️ by Anurag "
+          {getRandomName()}" Sawant
+        </p>
       </div>
 
-      <p className="text-xs opacity-50 mt-10">
-        &copy; {new Date().getFullYear()} Made with ❤️ by Anurag "
-        {getRandomName()}" Sawant
-      </p>
-    </div>
+      <Footer />
+    </>
   );
 };
 

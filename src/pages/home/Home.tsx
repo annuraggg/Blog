@@ -18,6 +18,7 @@ interface Post {
 
 const Home = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -33,6 +34,7 @@ const Home = () => {
       }));
 
       setPosts(postsData);
+      setFilteredPosts(postsData);
       setLoading(false);
     };
 
@@ -43,12 +45,35 @@ const Home = () => {
     return <Loader />;
   }
 
+  const searchPosts = (query: string) => {
+    if (posts.length === 0) return;
+    if (query === "") {
+      setFilteredPosts(posts);
+      return;
+    }
+
+    const filtered = posts.filter((post) =>
+      post.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+    setFilteredPosts(filtered);
+  };
+
   return (
     <div className="pt-28 flex flex-col items-center">
       <h1 className="text-5xl mb-5">Home</h1>
 
+      <div>
+        <input
+          type="text"
+          placeholder="Search Posts"
+          className="bg-transparent border border-gray-400 py-2 px-3 w-80 rounded"
+          onChange={(e) => searchPosts(e.target.value)}
+        />
+      </div>
+
       <div className="w-full flex flex-col items-center px-5 md:px-0">
-        {posts.map((post) => (
+        {filteredPosts.map((post) => (
           <div
             className="mt-4 border p-5 rounded-lg px-5 w-[100%] md:w-[50%] md:px-10 border-gray-500 cursor-pointer hover:scale-[1.01] transition-all duration-200"
             key={post.id}
